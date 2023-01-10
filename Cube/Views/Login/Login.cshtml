@@ -1,0 +1,36 @@
+﻿@model Cube.Models.Login;
+@{
+    ViewData["Title"] = "Index";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+</head>
+<body>
+    <form asp-controller="Login" asp-action="Login" method="post">
+        <h1>Login</h1>
+        <input placeholder="FirstName" asp-for="FirstName" />
+        <input placeholder="LastName" asp-for="LastName" />
+        <input type="password" placeholder="PassWord" asp-for="PassWord" />
+
+        <label>
+            <input type="checkbox" asp-for="RememberMe" />
+            Remember Me
+            <button type="submit">Login</button>
+
+            @if (ViewData["ValidateMessage"] != null)
+            {
+                <br />
+                <label>
+                    @ViewData["ValidateMessage"]
+                </label>
+
+            }
+        </label>
+    </form>
+</body>
+</html>
