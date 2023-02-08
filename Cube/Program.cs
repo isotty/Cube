@@ -8,7 +8,6 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddSession();
 builder.Services.AddDbContext<CubeProjetIndiContext>();
-
 builder.Services.AddAuthentication("CookieAuth").AddCookie("CookieAuth", options =>
 {
     options.Cookie.Name = "CookieAuth";
@@ -20,6 +19,7 @@ builder.Services.AddAuthorization(options => {
     options.AddPolicy("AdminOnly",
         policy => policy.RequireClaim("Admin"));
 });
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
